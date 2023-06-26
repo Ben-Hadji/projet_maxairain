@@ -1,0 +1,19 @@
+/*header*/
+
+nav{
+    margin-bottom: 3rem;
+}
+
+/*footer*/
+
+footer{
+    margin-top: 4rem;
+    height: 5rem;
+    display: flex!important;
+    align-items: center;
+}
+footer .container .row{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
