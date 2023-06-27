@@ -1,0 +1,14 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+	<h1>Liste des stocks</h1>
+
+	{% for stock in stocks %}
+		<div>
+			<input type="checkbox" value="{{ stock.id }}">
+			{{ stock.name }}
+		</div>
+	{% endfor %}
+
+
+{% endblock %}
