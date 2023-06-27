@@ -11,17 +11,23 @@
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
         <!-- inclure la feuille de style personnaliser-->
         <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+        <!-- utilisation de la font-family Roboto -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet"> 
     </head>
     <body>
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-            <a class="navbar-brand" href="{{path('accueil')}}">MaxAirain</a>
+            <a class="navbar-brand" href="{{path('accueil')}}">
+                <img src="{{ asset('image/logo_MaxAiRain.png') }}" alt="logo de MaxAiRain">
+            </a>
             <div class="collapse navbar-collapse" id="navbarText">
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item active">
                         <a class="nav-link" href="{{path('accueil')}}">Accueil <span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">A propos</a>
+                        <a class="nav-link" href="{{path('laSociete')}}">A propos</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#">Nos agents</a>
@@ -29,7 +35,7 @@
                 </ul>
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="{{path('login')}}">Se connecter</a>
+                        <a class="nav-link" href="{{path('login')}}">S'identifier</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="{{path('inscription')}}">S'inscrire</a>

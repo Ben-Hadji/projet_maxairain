@@ -1,9 +1,79 @@
-/*header*/
+:root
+{
+    /*Typography*/
+    --bold:700;
+    --semi-bold:600;
+    --normal:  400;
+    /*Colors*/
+    --black:#000000;
+    --white:#ffffff;
+    --green:#659224;
+    --blue:#379EC1;
+    /*fonts*/
+    --roboto: 'Roboto', sans-serif;
+}
 
+@font-face {
+    font-family: var(--roboto);
+    src: url('public/fonts/Roboto/Roboto-Regular.ttf') format('truetype');
+  }
+  html{
+    font-family: var(--roboto);
+  }
+  h1,h2,h3,h4,h5{
+    font-family: var(--roboto);
+    font-weight: var(--semi-bold);
+    color:var(--blue);
+  }
+  .bouton{
+    background-color: var(--blue);
+    margin-top: 1rem;
+  }
+/*header*/
 nav{
     margin-bottom: 3rem;
 }
+.contenue{
+    margin-left: 7rem;
+    margin-right: 7rem;
+}
+/*page accueil*/
+.contenue_accueil{
+    display: flex;
+    flex-direction: row;
+    gap:2rem;
+    flex-wrap: wrap;
+    font-family: var(--roboto);
+    justify-content: center;
+}
+/*page a propos*/
 
+.a_propos{
+    font-family: var(--roboto);
+}
+.contenue_a_propos{
+    display: flex;
+    flex-direction: row;
+    gap:1rem;
+    margin-bottom: 2rem;
+    align-items: start;
+}
+.texte-accueil{
+    width: 25rem;
+    font-size: 20px;
+
+}
+.contenue_a_propos p{
+    margin: 0;
+}
+.circle {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: var(--blue);
+    transform: translateY(0.5rem);
+  }
+   
 /*footer*/
 
 footer{

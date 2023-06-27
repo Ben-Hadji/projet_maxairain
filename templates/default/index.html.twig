@@ -3,14 +3,30 @@
 {% block title %}Page d'accueil{% endblock %}
 
 {% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
 
-<div class="example-wrapper">
-    <h1>Accueil</h1>
-    <p></p>
+<div class="container">
+    
+    <div class="contenue_accueil">
+        <div class="texte-accueil">
+            Depuis 2015, la société « MaxAirain » intervient dans le cadre de la sécurité, du gardiennage, de la
+        protection et de la surveillance. Leur mission consiste à assurer la sécurité des activités, déplacements
+        et manifestations de leur client.
+        </div>
+        <div class="image_accueil">
+            <img src="{{ asset('image/image_accueil.png') }}" alt="image accueil de MaxAiRain">
+        </div>
+    </div>
+
+    <h2>Liste des agents</h2>
+    <ul>
+    {% for info in users %}
+
+        <li>{{info.nom}}</li>
+						
+	{% endfor %}
+
+    
+    </ul>
 
 </div>
 {% endblock %}

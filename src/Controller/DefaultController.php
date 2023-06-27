@@ -2,21 +2,35 @@
 
 namespace App\Controller;
 
+use App\Repository\UserRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
-use \FaceRecognition\FaceRecognition;
-
+use App\Entity\User;
 
 class DefaultController extends AbstractController
 {
+    private $userRepository;
+
+    public function __construct(UserRepository $userRepository)
+    {
+        $this->userRepository = $userRepository;
+    }
+
     #[Route('/', name: 'accueil')]
     public function index(): Response
     {
-        /**teste */
+        $users = $this->userRepository->findAll(User::class);
 
+        return $this->render('default/index.html.twig', [
+            'users' => $users
+        ]);
+    }
 
-        return $this->render('default/index.html.twig');
+    #[Route('/a_propos', name: 'laSociete')]
+    public function aPropos(): Response
+    {
+        return $this->render('default/laSociete.html.twig');
     }
 }
