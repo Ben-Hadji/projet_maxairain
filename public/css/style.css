@@ -78,12 +78,21 @@ nav{
 
 footer{
     margin-top: 4rem;
-    height: 5rem;
+    height: 50px;
     display: flex!important;
     align-items: center;
+    position: absolute;
+    width: 100%; 
+    bottom: 0; 
+    left: 0;
+    right: 0;
 }
 footer .container .row{
     display: flex;
     align-items: center;
     justify-content: space-between;
+}
+
+.footer_parent{
+    position: relative;
 }
