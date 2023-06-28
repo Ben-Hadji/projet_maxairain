@@ -100,10 +100,7 @@ class __TwigTemplate_c038f15fec8b18a250e6c8157360829b extends Template
         echo "\" alt=\"image accueil de MaxAiRain\">
         </div>
     </div>
-    <h2>";
-        // line 18
-        echo twig_escape_filter($this->env, (isset($context["res"]) || array_key_exists("res", $context) ? $context["res"] : (function () { throw new RuntimeError('Variable "res" does not exist.', 18, $this->source); })()), "html", null, true);
-        echo "</h2>
+   
     <h2>Liste des agents</h2>
 
     <div class=\"container\">
@@ -114,30 +111,44 @@ class __TwigTemplate_c038f15fec8b18a250e6c8157360829b extends Template
         $context['_seq'] = twig_ensure_traversable((isset($context["users"]) || array_key_exists("users", $context) ? $context["users"] : (function () { throw new RuntimeError('Variable "users" does not exist.', 23, $this->source); })()));
         foreach ($context['_seq'] as $context["_key"] => $context["info"]) {
             // line 24
-            echo "
-            <div class=\"col-md-4\">
-                <div class=\"card\">
-                    <img src=\"image1.jpg\" class=\"card-img-top\" alt=\"Image 1\">
-                    <div class=\"card-body\">
-                    <h5 class=\"card-title\">";
-            // line 29
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["info"], "nom", [], "any", false, false, false, 29), "html", null, true);
-            echo "</h5>
-                    <p class=\"card-text\">";
-            // line 30
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["info"], "email", [], "any", false, false, false, 30), "html", null, true);
-            echo "</p>
-                    </div>
-                </div>
-            </div>
-
+            echo "    <div class=\"col-md-4\">
+        <div class=\"card\">
             ";
+            // line 26
+            if ((null === twig_get_attribute($this->env, $this->source, $context["info"], "image", [], "any", false, false, false, 26))) {
+                // line 27
+                echo "                <img src=\"";
+                echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("image/avatar.png"), "html", null, true);
+                echo "\" class=\"card-img-top\" alt=\"Image 1\">
+            ";
+            } else {
+                // line 29
+                echo "                <img src=\"";
+                echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl(twig_get_attribute($this->env, $this->source, $context["info"], "image", [], "any", false, false, false, 29)), "html", null, true);
+                echo "\" class=\"card-img-top\" alt=\"Image 1\">
+            ";
+            }
+            // line 31
+            echo "            <div class=\"card-body\">
+                <h5 class=\"card-title\">";
+            // line 32
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["info"], "nom", [], "any", false, false, false, 32), "html", null, true);
+            echo "</h5>
+                <p class=\"card-text\">";
+            // line 33
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["info"], "email", [], "any", false, false, false, 33), "html", null, true);
+            echo "</p>
+            </div>
+        </div>
+    </div>
+";
         }
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['info'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 36
-        echo "            
+        // line 38
+        echo "
+            
         </div>
     </div>
 
@@ -163,7 +174,7 @@ class __TwigTemplate_c038f15fec8b18a250e6c8157360829b extends Template
 
     public function getDebugInfo()
     {
-        return array (  140 => 36,  128 => 30,  124 => 29,  117 => 24,  113 => 23,  105 => 18,  99 => 15,  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
+        return array (  150 => 38,  139 => 33,  135 => 32,  132 => 31,  126 => 29,  120 => 27,  118 => 26,  114 => 24,  110 => 23,  99 => 15,  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
     }
 
     public function getSourceContext()
@@ -185,24 +196,27 @@ class __TwigTemplate_c038f15fec8b18a250e6c8157360829b extends Template
             <img src=\"{{ asset('image/image_accueil.png') }}\" alt=\"image accueil de MaxAiRain\">
         </div>
     </div>
-    <h2>{{res}}</h2>
+   
     <h2>Liste des agents</h2>
 
     <div class=\"container\">
         <div class=\"row\">
             {% for info in users %}
-
-            <div class=\"col-md-4\">
-                <div class=\"card\">
-                    <img src=\"image1.jpg\" class=\"card-img-top\" alt=\"Image 1\">
-                    <div class=\"card-body\">
-                    <h5 class=\"card-title\">{{info.nom}}</h5>
-                    <p class=\"card-text\">{{info.email}}</p>
-                    </div>
-                </div>
+    <div class=\"col-md-4\">
+        <div class=\"card\">
+            {% if info.image is null %}
+                <img src=\"{{ asset('image/avatar.png') }}\" class=\"card-img-top\" alt=\"Image 1\">
+            {% else %}
+                <img src=\"{{ asset(info.image) }}\" class=\"card-img-top\" alt=\"Image 1\">
+            {% endif %}
+            <div class=\"card-body\">
+                <h5 class=\"card-title\">{{ info.nom }}</h5>
+                <p class=\"card-text\">{{ info.email }}</p>
             </div>
+        </div>
+    </div>
+{% endfor %}
 
-            {% endfor %}
             
         </div>
     </div>

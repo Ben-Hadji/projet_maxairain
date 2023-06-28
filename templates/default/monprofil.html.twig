@@ -6,12 +6,13 @@
 
 <div class="contenue">
 	<div class="contenue_profil">
-		<img class="image_profil" src="{{ asset('image/image_teste.jpg') }}" alt="image user mon profile">
-
+		<img class="image_profil" src="{{ asset(app.user.image) }}" alt="image user mon profile">
+		
 		<h1>Mon profil</h1>
 		{% if app.user %}
 			<p>Nom :  {{ app.user.nom }}</p>
 			<p>email : {{ app.user.email}}</p>
+			<p> image : {{app.user.image}}</p>
 		{% endif %}
 
 		<h2>Liste du matériel</h2>

@@ -90,9 +90,9 @@ class __TwigTemplate_10eb5532f87a02bcc000347c21481d34 extends Template
 \t<div class=\"contenue_profil\">
 \t\t<img class=\"image_profil\" src=\"";
         // line 9
-        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("image/image_teste.jpg"), "html", null, true);
+        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl(twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 9, $this->source); })()), "user", [], "any", false, false, false, 9), "image", [], "any", false, false, false, 9)), "html", null, true);
         echo "\" alt=\"image user mon profile\">
-
+\t\t
 \t\t<h1>Mon profil</h1>
 \t\t";
         // line 12
@@ -105,26 +105,30 @@ class __TwigTemplate_10eb5532f87a02bcc000347c21481d34 extends Template
             // line 14
             echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 14, $this->source); })()), "user", [], "any", false, false, false, 14), "email", [], "any", false, false, false, 14), "html", null, true);
             echo "</p>
+\t\t\t<p> image : ";
+            // line 15
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 15, $this->source); })()), "user", [], "any", false, false, false, 15), "image", [], "any", false, false, false, 15), "html", null, true);
+            echo "</p>
 \t\t";
         }
-        // line 16
+        // line 17
         echo "
 \t\t<h2>Liste du matériel</h2>
 
 \t\t\t";
-        // line 19
+        // line 20
         $context['_parent'] = $context;
-        $context['_seq'] = twig_ensure_traversable((isset($context["stocks"]) || array_key_exists("stocks", $context) ? $context["stocks"] : (function () { throw new RuntimeError('Variable "stocks" does not exist.', 19, $this->source); })()));
+        $context['_seq'] = twig_ensure_traversable((isset($context["stocks"]) || array_key_exists("stocks", $context) ? $context["stocks"] : (function () { throw new RuntimeError('Variable "stocks" does not exist.', 20, $this->source); })()));
         foreach ($context['_seq'] as $context["_key"] => $context["stock"]) {
-            // line 20
+            // line 21
             echo "\t\t\t\t<div>
 \t\t\t\t\t<input type=\"checkbox\" value=\"";
-            // line 21
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["stock"], "id", [], "any", false, false, false, 21), "html", null, true);
+            // line 22
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["stock"], "id", [], "any", false, false, false, 22), "html", null, true);
             echo "\">
 \t\t\t\t\t";
-            // line 22
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["stock"], "name", [], "any", false, false, false, 22), "html", null, true);
+            // line 23
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["stock"], "name", [], "any", false, false, false, 23), "html", null, true);
             echo "
 \t\t\t\t</div>
 \t\t\t";
@@ -132,7 +136,7 @@ class __TwigTemplate_10eb5532f87a02bcc000347c21481d34 extends Template
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['stock'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 25
+        // line 26
         echo "\t\t</div>
 \t</div>
 </div>
@@ -158,7 +162,7 @@ class __TwigTemplate_10eb5532f87a02bcc000347c21481d34 extends Template
 
     public function getDebugInfo()
     {
-        return array (  136 => 25,  127 => 22,  123 => 21,  120 => 20,  116 => 19,  111 => 16,  106 => 14,  101 => 13,  99 => 12,  93 => 9,  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
+        return array (  140 => 26,  131 => 23,  127 => 22,  124 => 21,  120 => 20,  115 => 17,  110 => 15,  106 => 14,  101 => 13,  99 => 12,  93 => 9,  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
     }
 
     public function getSourceContext()
@@ -171,12 +175,13 @@ class __TwigTemplate_10eb5532f87a02bcc000347c21481d34 extends Template
 
 <div class=\"contenue\">
 \t<div class=\"contenue_profil\">
-\t\t<img class=\"image_profil\" src=\"{{ asset('image/image_teste.jpg') }}\" alt=\"image user mon profile\">
-
+\t\t<img class=\"image_profil\" src=\"{{ asset(app.user.image) }}\" alt=\"image user mon profile\">
+\t\t
 \t\t<h1>Mon profil</h1>
 \t\t{% if app.user %}
 \t\t\t<p>Nom :  {{ app.user.nom }}</p>
 \t\t\t<p>email : {{ app.user.email}}</p>
+\t\t\t<p> image : {{app.user.image}}</p>
 \t\t{% endif %}
 
 \t\t<h2>Liste du matériel</h2>

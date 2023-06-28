@@ -100,38 +100,51 @@ class __TwigTemplate_f2b4f7bdb7f0c816f92bdfe4682cb1b4 extends Template
         echo "
         ";
         // line 12
-        if (twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 12, $this->source); })()), "user", [], "any", false, false, false, 12)) {
+        if ((isset($context["res"]) || array_key_exists("res", $context) ? $context["res"] : (function () { throw new RuntimeError('Variable "res" does not exist.', 12, $this->source); })())) {
             // line 13
+            echo "            <p>";
+            echo twig_escape_filter($this->env, (isset($context["res"]) || array_key_exists("res", $context) ? $context["res"] : (function () { throw new RuntimeError('Variable "res" does not exist.', 13, $this->source); })()), "html", null, true);
+            echo "</p>
+        ";
+        }
+        // line 15
+        echo "
+       
+        ";
+        // line 17
+        if (twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 17, $this->source); })()), "user", [], "any", false, false, false, 17)) {
+            // line 18
             echo "            <div class=\"mb-3\">
                 Vous etes connecter en tant que ";
-            // line 14
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 14, $this->source); })()), "user", [], "any", false, false, false, 14), "userIdentifier", [], "any", false, false, false, 14), "html", null, true);
+            // line 19
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 19, $this->source); })()), "user", [], "any", false, false, false, 19), "userIdentifier", [], "any", false, false, false, 19), "html", null, true);
             echo ", <a href=\"";
             echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_logout");
             echo "\">deconnexion</a>
             </div>
         ";
         }
-        // line 17
+        // line 22
         echo "
         <h1 class=\"h3 mb-3 font-weight-normal\">Connectez-vous</h1>
         <label for=\"inputEmail\">Email</label>
         <input type=\"email\" value=\"";
-        // line 20
-        echo twig_escape_filter($this->env, (isset($context["last_username"]) || array_key_exists("last_username", $context) ? $context["last_username"] : (function () { throw new RuntimeError('Variable "last_username" does not exist.', 20, $this->source); })()), "html", null, true);
+        // line 25
+        echo twig_escape_filter($this->env, (isset($context["last_username"]) || array_key_exists("last_username", $context) ? $context["last_username"] : (function () { throw new RuntimeError('Variable "last_username" does not exist.', 25, $this->source); })()), "html", null, true);
         echo "\" name=\"email\" id=\"inputEmail\" class=\"form-control\" autocomplete=\"email\" required autofocus>
         <label for=\"inputPassword\">Password</label>
         <input type=\"password\" name=\"password\" id=\"inputPassword\" class=\"form-control\" autocomplete=\"current-password\" required>
-
+        <label for=\"inputImage\">Image</label>
+        <input type=\"text\" name=\"image\" id=\"inputImage\" class=\"form-control\" required>
         <input type=\"hidden\" name=\"_csrf_token\"
             value=\"";
-        // line 25
+        // line 31
         echo twig_escape_filter($this->env, $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderCsrfToken("authenticate"), "html", null, true);
         echo "\"
         >
 
         ";
-        // line 38
+        // line 44
         echo "
         <button class=\"btn btn-lg bouton\" type=\"submit\">
             Sign in
@@ -159,7 +172,7 @@ class __TwigTemplate_f2b4f7bdb7f0c816f92bdfe4682cb1b4 extends Template
 
     public function getDebugInfo()
     {
-        return array (  135 => 38,  129 => 25,  121 => 20,  116 => 17,  108 => 14,  105 => 13,  103 => 12,  100 => 11,  94 => 9,  92 => 8,  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
+        return array (  148 => 44,  142 => 31,  133 => 25,  128 => 22,  120 => 19,  117 => 18,  115 => 17,  111 => 15,  105 => 13,  103 => 12,  100 => 11,  94 => 9,  92 => 8,  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
     }
 
     public function getSourceContext()
@@ -175,6 +188,11 @@ class __TwigTemplate_f2b4f7bdb7f0c816f92bdfe4682cb1b4 extends Template
             <div class=\"alert alert-danger\">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
         {% endif %}
 
+        {% if res %}
+            <p>{{res}}</p>
+        {% endif %}
+
+       
         {% if app.user %}
             <div class=\"mb-3\">
                 Vous etes connecter en tant que {{ app.user.userIdentifier }}, <a href=\"{{ path('app_logout') }}\">deconnexion</a>
@@ -186,7 +204,8 @@ class __TwigTemplate_f2b4f7bdb7f0c816f92bdfe4682cb1b4 extends Template
         <input type=\"email\" value=\"{{ last_username }}\" name=\"email\" id=\"inputEmail\" class=\"form-control\" autocomplete=\"email\" required autofocus>
         <label for=\"inputPassword\">Password</label>
         <input type=\"password\" name=\"password\" id=\"inputPassword\" class=\"form-control\" autocomplete=\"current-password\" required>
-
+        <label for=\"inputImage\">Image</label>
+        <input type=\"text\" name=\"image\" id=\"inputImage\" class=\"form-control\" required>
         <input type=\"hidden\" name=\"_csrf_token\"
             value=\"{{ csrf_token('authenticate') }}\"
         >

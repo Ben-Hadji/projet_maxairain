@@ -9,7 +9,7 @@ use Symfony\Component\Routing\Annotation\Route;
 
 use App\Entity\User;
 
-use App\Entity\faceModel;
+
 
 class DefaultController extends AbstractController
 {
@@ -25,15 +25,10 @@ class DefaultController extends AbstractController
     {
         $users = $this->userRepository->findAll(User::class);
 
-        $facemodel = new faceModel();
-
-        $res=$facemodel->compare('public/image/pic1.jpg','public/image/pic1.png');
-        /**test */
-
-        
+       
 
         return $this->render('default/index.html.twig', [
-            'users' => $users,'res'=>$res
+            'users' => $users
         ]);     
     }
 

@@ -15,34 +15,72 @@ use Symfony\Component\Security\Http\Authenticator\Passport\Credentials\PasswordC
 use Symfony\Component\Security\Http\Authenticator\Passport\Passport;
 use Symfony\Component\Security\Http\Util\TargetPathTrait;
 
+
+//ajouté
+use Symfony\Component\Security\Core\User\UserProviderInterface;
+use Symfony\Component\Security\Core\Exception\CustomUserMessageAuthenticationException;
+use App\Repository\UserRepository;
+use Symfony\Component\Security\Core\User\User;
+use App\Entity\faceModel;
+
 class LogInFormAuthenticator extends AbstractLoginFormAuthenticator
 {
     use TargetPathTrait;
 
+    //ajouté
+    private $userRepository;
+
     public const LOGIN_ROUTE = 'app_login';
 
-    public function __construct(private UrlGeneratorInterface $urlGenerator)
+    public function __construct(private UrlGeneratorInterface $urlGenerator,UserRepository $userRepository)
     {
+        $this->userRepository = $userRepository;
     }
 
     public function authenticate(Request $request): Passport
     {
         $email = $request->request->get('email', '');
 
+        //ajouté
+        $image = $request->request->get('image', '');
+        $user = $this->userRepository->findOneBy(['email' => $email]);
+
+        if (!$user || $user->getImage() !== $image) {
+            throw new CustomUserMessageAuthenticationException('adresse mail or image non valide');
+        }
+
+        
+
         $request->getSession()->set(Security::LAST_USERNAME, $email);
 
+         // Comparer l'image saisie avec image/image_5.jpg
+        $facemodel = new faceModel();
+        $res = $facemodel->compare($image, 'image/image_5.jpg');
+        //fin code ajouté
+
+        if (strpos($res, 'true') === false) {
+            throw new CustomUserMessageAuthenticationException('Invalid image');
+        }
         return new Passport(
-            new UserBadge($email),
+            new UserBadge($email, function () use ($user) {
+                return $this->userRepository->findOneBy(['email' => $user->getEmail()]);
+            }),
             new PasswordCredentials($request->request->get('password', '')),
             [
                 new CsrfTokenBadge('authenticate', $request->request->get('_csrf_token')),
-            ]
+            ],
+            // Ajoutez le badge UserBadge pour le champ "image"
+            new UserBadge($email, function () use ($user, $image) {
+                // Vous pouvez également vérifier le champ "image" ici si nécessaire
+                return new User($user->getUsername(), $user->getPassword(), $user->getRoles(), $image);
+            })
         );
     }
 
     public function onAuthenticationSuccess(Request $request, TokenInterface $token, string $firewallName): ?Response
     {
         if ($targetPath = $this->getTargetPath($request->getSession(), $firewallName)) {
+            
             return new RedirectResponse($targetPath);
         }
 

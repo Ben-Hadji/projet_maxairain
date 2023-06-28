@@ -15,24 +15,27 @@
             <img src="{{ asset('image/image_accueil.png') }}" alt="image accueil de MaxAiRain">
         </div>
     </div>
-    <h2>{{res}}</h2>
+   
     <h2>Liste des agents</h2>
 
     <div class="container">
         <div class="row">
             {% for info in users %}
-
-            <div class="col-md-4">
-                <div class="card">
-                    <img src="image1.jpg" class="card-img-top" alt="Image 1">
-                    <div class="card-body">
-                    <h5 class="card-title">{{info.nom}}</h5>
-                    <p class="card-text">{{info.email}}</p>
-                    </div>
-                </div>
+    <div class="col-md-4">
+        <div class="card">
+            {% if info.image is null %}
+                <img src="{{ asset('image/avatar.png') }}" class="card-img-top" alt="Image 1">
+            {% else %}
+                <img src="{{ asset(info.image) }}" class="card-img-top" alt="Image 1">
+            {% endif %}
+            <div class="card-body">
+                <h5 class="card-title">{{ info.nom }}</h5>
+                <p class="card-text">{{ info.email }}</p>
             </div>
+        </div>
+    </div>
+{% endfor %}
 
-            {% endfor %}
             
         </div>
     </div>

@@ -16,6 +16,7 @@ class StockController extends AbstractController
     {
         $stocks = $stockRepository->findAll();
 
+
         return $this->render('default/monprofil.html.twig', ['stocks' => $stocks]);
     }
 }

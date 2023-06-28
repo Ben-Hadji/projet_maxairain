@@ -9,6 +9,7 @@ return [PHP_INT_MAX, static function () { return \Symfony\Component\VarExporter\
         clone $p['Symfony\\Component\\Serializer\\Mapping\\AttributeMetadata'],
         clone $p['Symfony\\Component\\Serializer\\Mapping\\AttributeMetadata'],
         clone $p['Symfony\\Component\\Serializer\\Mapping\\AttributeMetadata'],
+        clone $p['Symfony\\Component\\Serializer\\Mapping\\AttributeMetadata'],
     ],
     null,
     [
@@ -20,6 +21,7 @@ return [PHP_INT_MAX, static function () { return \Symfony\Component\VarExporter\
                 'roles',
                 'password',
                 'nom',
+                'image',
                 'userIdentifier',
             ],
             'attributesMetadata' => [
@@ -29,7 +31,8 @@ return [PHP_INT_MAX, static function () { return \Symfony\Component\VarExporter\
                     'roles' => $o[3],
                     'password' => $o[4],
                     'nom' => $o[5],
-                    'userIdentifier' => $o[6],
+                    'image' => $o[6],
+                    'userIdentifier' => $o[7],
                 ],
             ],
             'classDiscriminatorMapping' => [

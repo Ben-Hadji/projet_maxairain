@@ -467,6 +467,7 @@
       <tag name="controller.service_arguments"/>
       <tag name="container.service_subscriber"/>
       <argument type="service" id="security.user_password_hasher"/>
+      <argument type="service" id="App\Repository\UserRepository"/>
       <call method="setContainer">
         <argument type="service" id=".service_locator.O2p6Lk7.App\Controller\SecurityController"/>
       </call>
@@ -491,6 +492,7 @@
     </service>
     <service id="App\Security\LogInFormAuthenticator" class="App\Security\LogInFormAuthenticator" autowire="true" autoconfigure="true">
       <argument type="service" id="router.default"/>
+      <argument type="service" id="App\Repository\UserRepository"/>
     </service>
     <service id="argument_metadata_factory" class="Symfony\Component\HttpKernel\ControllerMetadata\ArgumentMetadataFactory"/>
     <service id="argument_resolver.backed_enum_resolver" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\BackedEnumValueResolver">

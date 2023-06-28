@@ -1,29 +1,33 @@
 <?php
 namespace App\Entity;
-use Doctrine\ORM\Mapping as ORM;
 
 
-class faceModel{
-public function compare($a, $b)
+
+class faceModel
 {
+    public function compare($a, $b)
+    {
+        $output = shell_exec('docker run -it -d macgyvertechnology/face-comparison-model:2');
+        $output = preg_replace('/[^0-9a-z]/', '', $output);
 
-    $output = shell_exec('docker run -it -d macgyvertechnology/face-comparison-model:2');
-    $output = preg_replace('/[^0-9a-z]/', '', $output);
 
-// write images to container
-    exec('docker cp ' . $a . ' ' . $output . ':/macgyver/temp/known.jpg');
-    exec('docker cp ' . $b . ' ' . $output . ':/macgyver/temp/test.jpg');
+        // write images to container
+        exec('docker cp ' . $a . ' ' . $output . ':/macgyver/temp/known.jpg');
+        exec('docker cp ' . $b . ' ' . $output . ':/macgyver/temp/test.jpg');
 
-// Run main file
-    $probability = shell_exec("docker exec -t " . $output . " /bin/bash -c 'python3 /macgyver/main'");
 
-// Stop the Container
-    exec("docker stop " . $output);
+        // Run main file
 
-// Delete the Container
-    exec("docker rm " . $output);
+       //$probability = shell_exec("docker exec -t " . $output . " /bin/bash -c 'python3 /macgyver/main'");
+       $probability = shell_exec('docker exec -t ' . $output . ' bin/bash -c "python3 /macgyver/main"');
 
-    return $probability;
-}
 
+        // Stop the Container
+        exec("docker stop " . $output);
+
+        // Delete the Container
+        exec("docker rm " . $output);
+
+        return $probability;
+    }
 }

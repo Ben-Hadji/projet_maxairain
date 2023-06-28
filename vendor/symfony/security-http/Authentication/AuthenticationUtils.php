@@ -32,6 +32,7 @@ class AuthenticationUtils
 
     public function getLastAuthenticationError(bool $clearSession = true): ?AuthenticationException
     {
+    
         $request = $this->getRequest();
         $authenticationException = null;
 
@@ -50,9 +51,12 @@ class AuthenticationUtils
 
     public function getLastUsername(): string
     {
+        
         $request = $this->getRequest();
 
+        
         if ($request->attributes->has(SecurityRequestAttributes::LAST_USERNAME)) {
+            
             return $request->attributes->get(SecurityRequestAttributes::LAST_USERNAME, '');
         }
 
@@ -64,6 +68,7 @@ class AuthenticationUtils
      */
     private function getRequest(): Request
     {
+    
         $request = $this->requestStack->getCurrentRequest();
 
         if (null === $request) {

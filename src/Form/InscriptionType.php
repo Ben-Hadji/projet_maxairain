@@ -21,6 +21,7 @@ class InscriptionType extends AbstractType
             ])
             ->add('password',PasswordType::class)
             ->add('nom',TextType::class)
+            ->add('image',TextType::class,['required' => true,])
         ;
         //champs à masquer 
         $builder->remove('roles');

@@ -54,6 +54,10 @@ nav{
     margin-top: 1rem;
     margin-bottom: 1rem;
 }
+.card-img-top{
+    height: 15rem;
+    object-fit: cover;
+}
 
 /*page a propos*/
 
@@ -101,6 +105,8 @@ nav{
     top: 0;*/
     border-radius: 1rem 1rem 0rem 0rem;
     height: 23rem;
+    object-fit: cover;
+transform: translateY(-1.5rem);
    }
 /*footer*/
 
