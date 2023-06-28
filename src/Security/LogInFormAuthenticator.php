@@ -55,6 +55,7 @@ class LogInFormAuthenticator extends AbstractLoginFormAuthenticator
 
          // Comparer l'image saisie avec image/image_5.jpg
         $facemodel = new faceModel();
+        
         $res = $facemodel->compare($image, 'image/image_5.jpg');
         //fin code ajouté
 
