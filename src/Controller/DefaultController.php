@@ -9,6 +9,8 @@ use Symfony\Component\Routing\Annotation\Route;
 
 use App\Entity\User;
 
+use App\Entity\faceModel;
+
 class DefaultController extends AbstractController
 {
     private $userRepository;
@@ -23,10 +25,21 @@ class DefaultController extends AbstractController
     {
         $users = $this->userRepository->findAll(User::class);
 
+        $facemodel = new faceModel();
+
+        $res=$facemodel->compare('public/image/pic1.jpg','public/image/pic1.png');
+        /**test */
+
+        
+
         return $this->render('default/index.html.twig', [
-            'users' => $users
-        ]);
+            'users' => $users,'res'=>$res
+        ]);     
     }
+
+   
+
+
 
     #[Route('/a_propos', name: 'laSociete')]
     public function aPropos(): Response

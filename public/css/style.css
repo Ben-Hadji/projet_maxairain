@@ -36,6 +36,8 @@ nav{
 .contenue{
     margin-left: 7rem;
     margin-right: 7rem;
+    display: flex;
+    justify-content: center;
 }
 /*page accueil*/
 .contenue_accueil{
@@ -45,7 +47,14 @@ nav{
     flex-wrap: wrap;
     font-family: var(--roboto);
     justify-content: center;
+    margin-bottom: 6rem;
 }
+.card{
+    border-radius: 0.7rem !important;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+
 /*page a propos*/
 
 .a_propos{
@@ -73,7 +82,26 @@ nav{
     background-color: var(--blue);
     transform: translateY(0.5rem);
   }
-   
+
+  /*mon profil*/
+  .contenue_profil{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    border: 2px solid var(--blue);
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem;
+    width: 50rem;
+    border-radius: 1rem;
+  }
+   .image_profil{
+    width: 100%;
+    /*position: absolute;
+    top: 0;*/
+    border-radius: 1rem 1rem 0rem 0rem;
+    height: 23rem;
+   }
 /*footer*/
 
 footer{

@@ -33,15 +33,25 @@
                         <a class="nav-link" href="#">Nos agents</a>
                     </li>
                 </ul>
+                {% if is_granted('IS_AUTHENTICATED_REMEMBERED') %}
+                    <ul class="navbar-nav mr-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{path('monprofil')}}">Mon profil</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{path('app_logout')}}">Se deconnecter</a>
+                        </li>
+                    </ul>
+                {% else %}
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="{{path('login')}}">S'identifier</a>
+                        <a class="nav-link" href="{{path('app_login')}}">S'identifier</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="{{path('inscription')}}">S'inscrire</a>
                     </li>
                 </ul>
-                
+                {% endif %}
             </div>
         </nav>
         {% block body %}{% endblock %}

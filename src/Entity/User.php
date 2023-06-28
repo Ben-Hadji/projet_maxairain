@@ -10,6 +10,11 @@ use Symfony\Component\Security\Core\User\UserInterface;
 /* generer l'api */
 use ApiPlatform\Metadata\ApiResource;
 
+//a tester 
+
+use Lexik\Bundle\JWTAuthenticationBundle\Security\User\JWTUserInterface;
+
+
 #[ORM\Entity(repositoryClass: UserRepository::class)]
 #[ApiResource]
 class User implements UserInterface, PasswordAuthenticatedUserInterface
