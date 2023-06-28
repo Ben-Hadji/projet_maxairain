@@ -61,6 +61,10 @@ class __TwigTemplate_9f29f513a5741f898d2ed0a7f6c7ef04 extends Template
         // line 13
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("css/style.css"), "html", null, true);
         echo "\">
+            <script defer src=\"";
+        // line 14
+        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("js/camera.js"), "html", null, true);
+        echo "\"></script>
         <!-- utilisation de la font-family Roboto -->
         <link rel=\"preconnect\" href=\"https://fonts.googleapis.com\">
 <link rel=\"preconnect\" href=\"https://fonts.gstatic.com\" crossorigin>
@@ -69,11 +73,11 @@ class __TwigTemplate_9f29f513a5741f898d2ed0a7f6c7ef04 extends Template
     <body>
         <nav class=\"navbar navbar-expand-lg navbar-dark bg-dark\">
             <a class=\"navbar-brand\" href=\"";
-        // line 21
+        // line 22
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("accueil");
         echo "\">
                 <img src=\"";
-        // line 22
+        // line 23
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("image/logo_MaxAiRain.png"), "html", null, true);
         echo "\" alt=\"logo de MaxAiRain\">
             </a>
@@ -81,13 +85,13 @@ class __TwigTemplate_9f29f513a5741f898d2ed0a7f6c7ef04 extends Template
                 <ul class=\"navbar-nav mr-auto\">
                     <li class=\"nav-item active\">
                         <a class=\"nav-link\" href=\"";
-        // line 27
+        // line 28
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("accueil");
         echo "\">Accueil <span class=\"sr-only\">(current)</span></a>
                     </li>
                     <li class=\"nav-item\">
                         <a class=\"nav-link\" href=\"";
-        // line 30
+        // line 31
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("laSociete");
         echo "\">A propos</a>
                     </li>
@@ -96,49 +100,49 @@ class __TwigTemplate_9f29f513a5741f898d2ed0a7f6c7ef04 extends Template
                     </li>
                 </ul>
                 ";
-        // line 36
+        // line 37
         if ($this->extensions['Symfony\Bridge\Twig\Extension\SecurityExtension']->isGranted("IS_AUTHENTICATED_REMEMBERED")) {
-            // line 37
+            // line 38
             echo "                    <ul class=\"navbar-nav mr-auto\">
                         <li class=\"nav-item\">
                             <a class=\"nav-link\" href=\"";
-            // line 39
+            // line 40
             echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("monprofil");
             echo "\">Mon profil</a>
                         </li>
                         <li class=\"nav-item\">
                             <a class=\"nav-link\" href=\"";
-            // line 42
+            // line 43
             echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_logout");
             echo "\">Se deconnecter</a>
                         </li>
                     </ul>
                 ";
         } else {
-            // line 46
+            // line 47
             echo "                <ul class=\"navbar-nav mr-auto\">
                     <li class=\"nav-item\">
                         <a class=\"nav-link\" href=\"";
-            // line 48
+            // line 49
             echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_login");
             echo "\">S'identifier</a>
                     </li>
                     <li class=\"nav-item\">
                         <a class=\"nav-link\" href=\"";
-            // line 51
+            // line 52
             echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("inscription");
             echo "\">S'inscrire</a>
                     </li>
                 </ul>
                 ";
         }
-        // line 55
+        // line 56
         echo "            </div>
         </nav>
         ";
-        // line 57
-        $this->displayBlock('body', $context, $blocks);
         // line 58
+        $this->displayBlock('body', $context, $blocks);
+        // line 59
         echo "        <footer class=\"footer bg-dark text-white text-center\">
             <div class=\"container\">
                 <div class=\"row\">
@@ -185,7 +189,7 @@ class __TwigTemplate_9f29f513a5741f898d2ed0a7f6c7ef04 extends Template
 
     }
 
-    // line 57
+    // line 58
     public function block_body($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -215,7 +219,7 @@ class __TwigTemplate_9f29f513a5741f898d2ed0a7f6c7ef04 extends Template
 
     public function getDebugInfo()
     {
-        return array (  189 => 57,  170 => 5,  142 => 58,  140 => 57,  136 => 55,  129 => 51,  123 => 48,  119 => 46,  112 => 42,  106 => 39,  102 => 37,  100 => 36,  91 => 30,  85 => 27,  77 => 22,  73 => 21,  62 => 13,  51 => 5,  45 => 1,);
+        return array (  193 => 58,  174 => 5,  146 => 59,  144 => 58,  140 => 56,  133 => 52,  127 => 49,  123 => 47,  116 => 43,  110 => 40,  106 => 38,  104 => 37,  95 => 31,  89 => 28,  81 => 23,  77 => 22,  66 => 14,  62 => 13,  51 => 5,  45 => 1,);
     }
 
     public function getSourceContext()
@@ -233,6 +237,7 @@ class __TwigTemplate_9f29f513a5741f898d2ed0a7f6c7ef04 extends Template
 \t\t<script src=\"https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js\"></script>
         <!-- inclure la feuille de style personnaliser-->
         <link rel=\"stylesheet\" href=\"{{ asset('css/style.css') }}\">
+            <script defer src=\"{{ asset('js/camera.js') }}\"></script>
         <!-- utilisation de la font-family Roboto -->
         <link rel=\"preconnect\" href=\"https://fonts.googleapis.com\">
 <link rel=\"preconnect\" href=\"https://fonts.gstatic.com\" crossorigin>

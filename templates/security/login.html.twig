@@ -21,6 +21,13 @@
         {% endif %}
 
         <h1 class="h3 mb-3 font-weight-normal">Connectez-vous</h1>
+
+        <video id="video" width="640" height="480" autoplay></video>
+        <button id="capture">Prendre une photo</button>
+        <canvas id="canvas" width="640" height="480"></canvas>
+        <script src="script.js"></script>
+
+        
         <label for="inputEmail">Email</label>
         <input type="email" value="{{ last_username }}" name="email" id="inputEmail" class="form-control" autocomplete="email" required autofocus>
         <label for="inputPassword">Password</label>

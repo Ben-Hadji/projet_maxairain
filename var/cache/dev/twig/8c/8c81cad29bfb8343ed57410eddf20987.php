@@ -127,10 +127,17 @@ class __TwigTemplate_f2b4f7bdb7f0c816f92bdfe4682cb1b4 extends Template
         // line 22
         echo "
         <h1 class=\"h3 mb-3 font-weight-normal\">Connectez-vous</h1>
+
+        <video id=\"video\" width=\"640\" height=\"480\" autoplay></video>
+        <button id=\"capture\">Prendre une photo</button>
+        <canvas id=\"canvas\" width=\"640\" height=\"480\"></canvas>
+        <script src=\"script.js\"></script>
+
+        
         <label for=\"inputEmail\">Email</label>
         <input type=\"email\" value=\"";
-        // line 25
-        echo twig_escape_filter($this->env, (isset($context["last_username"]) || array_key_exists("last_username", $context) ? $context["last_username"] : (function () { throw new RuntimeError('Variable "last_username" does not exist.', 25, $this->source); })()), "html", null, true);
+        // line 32
+        echo twig_escape_filter($this->env, (isset($context["last_username"]) || array_key_exists("last_username", $context) ? $context["last_username"] : (function () { throw new RuntimeError('Variable "last_username" does not exist.', 32, $this->source); })()), "html", null, true);
         echo "\" name=\"email\" id=\"inputEmail\" class=\"form-control\" autocomplete=\"email\" required autofocus>
         <label for=\"inputPassword\">Password</label>
         <input type=\"password\" name=\"password\" id=\"inputPassword\" class=\"form-control\" autocomplete=\"current-password\" required>
@@ -138,13 +145,13 @@ class __TwigTemplate_f2b4f7bdb7f0c816f92bdfe4682cb1b4 extends Template
         <input type=\"text\" name=\"image\" id=\"inputImage\" class=\"form-control\" required>
         <input type=\"hidden\" name=\"_csrf_token\"
             value=\"";
-        // line 31
+        // line 38
         echo twig_escape_filter($this->env, $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderCsrfToken("authenticate"), "html", null, true);
         echo "\"
         >
 
         ";
-        // line 44
+        // line 51
         echo "
         <button class=\"btn btn-lg bouton\" type=\"submit\">
             Sign in
@@ -172,7 +179,7 @@ class __TwigTemplate_f2b4f7bdb7f0c816f92bdfe4682cb1b4 extends Template
 
     public function getDebugInfo()
     {
-        return array (  148 => 44,  142 => 31,  133 => 25,  128 => 22,  120 => 19,  117 => 18,  115 => 17,  111 => 15,  105 => 13,  103 => 12,  100 => 11,  94 => 9,  92 => 8,  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
+        return array (  155 => 51,  149 => 38,  140 => 32,  128 => 22,  120 => 19,  117 => 18,  115 => 17,  111 => 15,  105 => 13,  103 => 12,  100 => 11,  94 => 9,  92 => 8,  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
     }
 
     public function getSourceContext()
@@ -200,6 +207,13 @@ class __TwigTemplate_f2b4f7bdb7f0c816f92bdfe4682cb1b4 extends Template
         {% endif %}
 
         <h1 class=\"h3 mb-3 font-weight-normal\">Connectez-vous</h1>
+
+        <video id=\"video\" width=\"640\" height=\"480\" autoplay></video>
+        <button id=\"capture\">Prendre une photo</button>
+        <canvas id=\"canvas\" width=\"640\" height=\"480\"></canvas>
+        <script src=\"script.js\"></script>
+
+        
         <label for=\"inputEmail\">Email</label>
         <input type=\"email\" value=\"{{ last_username }}\" name=\"email\" id=\"inputEmail\" class=\"form-control\" autocomplete=\"email\" required autofocus>
         <label for=\"inputPassword\">Password</label>

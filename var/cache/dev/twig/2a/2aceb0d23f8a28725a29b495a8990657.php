@@ -100,7 +100,7 @@ class __TwigTemplate_c038f15fec8b18a250e6c8157360829b extends Template
         echo "\" alt=\"image accueil de MaxAiRain\">
         </div>
     </div>
-   
+  
     <h2>Liste des agents</h2>
 
     <div class=\"container\">
@@ -196,7 +196,7 @@ class __TwigTemplate_c038f15fec8b18a250e6c8157360829b extends Template
             <img src=\"{{ asset('image/image_accueil.png') }}\" alt=\"image accueil de MaxAiRain\">
         </div>
     </div>
-   
+  
     <h2>Liste des agents</h2>
 
     <div class=\"container\">

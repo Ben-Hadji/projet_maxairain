@@ -46,21 +46,21 @@ class LogInFormAuthenticator extends AbstractLoginFormAuthenticator
         $user = $this->userRepository->findOneBy(['email' => $email]);
 
         if (!$user || $user->getImage() !== $image) {
-            throw new CustomUserMessageAuthenticationException('adresse mail or image non valide');
+            throw new CustomUserMessageAuthenticationException('adresse mail ou image non valide');
         }
 
-        
 
         $request->getSession()->set(Security::LAST_USERNAME, $email);
 
          // Comparer l'image saisie avec image/image_5.jpg
         $facemodel = new faceModel();
         
-        $res = $facemodel->compare($image, 'image/image_5.jpg');
+        //$res = $facemodel->compare($image, 'image/image_5.jpg');
+        $res = $facemodel->compare($image, $user->getImage());
         //fin code ajouté
 
         if (strpos($res, 'true') === false) {
-            throw new CustomUserMessageAuthenticationException('Invalid image');
+            throw new CustomUserMessageAuthenticationException('Image invalide');
         }
         return new Passport(
             new UserBadge($email, function () use ($user) {
